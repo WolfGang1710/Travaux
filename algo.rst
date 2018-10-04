@@ -99,18 +99,18 @@ Exercice de l’horloge (#14)
     DEBUT
         ECRIRE("Saisissez le temps restant (heures, minutes et secondes) : ")
         LIRE(h,m,s)
-        TANT QUE (h<>0 OU m<>0 OU s<>0) :
+        TANT QUE (h<>0 OU m<>0 OU s<>0) :  //tant qu'il reste du temps
             s <- s-1
-            SI (s<0 ET (m>0 OU h>0) ALORS :
+            SI (s<0 ET (m>0 OU h>0) ALORS :  //si la minute est terminée
                 m <- m-1    
                 s <- 59
-                SI (m<0 ET h>0) ALORS :
+                SI (m<0 ET h>0) ALORS :  //si l'heure est terminée
                     h <- h-1
                     m <- 59
                 FIN SI
             FIN SI
-        ECRIRE(h,":",m,":",s)
-        FIN TANT QUE
+            ECRIRE(h,":",m,":",s)
+        FIN TANT QUE  //fin du décompte
         ECRIRE("BOUM !")
     FIN
 
