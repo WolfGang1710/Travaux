@@ -1,5 +1,0 @@
-\babel@toc {french}{}
-\contentsline {chapter}{\numberline {1}Algorithmique et programmation proc\IeC {\'e}durale}{1}{chapter.1}
-\contentsline {section}{\numberline {1.1}TD El\IeC {\'e}ments de base \textendash {} Structures}{1}{section.1.1}
-\contentsline {subsection}{\numberline {1.1.1}Exercices sur les pi\IeC {\`e}ces (\#13)}{1}{subsection.1.1.1}
-\contentsline {subsection}{\numberline {1.1.2}Exercice de l\IeC {\textquoteright }horloge (\#14)}{2}{subsection.1.1.2}
