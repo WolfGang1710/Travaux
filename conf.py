@@ -19,12 +19,12 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Programmation'
+project = 'TD Arthur Blaise'
 copyright = '2018, Arthur Blaise'
 author = 'Arthur Blaise'
 
 # The short X.Y version
-version = '1.0'
+version = '1.1'
 # The full version, including alpha/beta/rc tags
 release = ''
 
@@ -107,7 +107,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'algorithmiquedoc'
+htmlhelp_basename = 'blaisedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -136,7 +136,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'algorithmique.tex', "Cours d'algorithmique",
+    (master_doc, 'blaisedoc.tex', "TD d'Arthur Blaise",
      'Arthur Blaise', 'manual'),
 ]
 
@@ -146,7 +146,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'algorithmique', "Cours d'algorithmique",
+    (master_doc, 'blaisedoc', "TD divers",
      [author], 1)
 ]
 
@@ -157,8 +157,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'algorithmique', "Cours d'algorithmique",
-     author, 'algorithmique', 'One line description of project.',
+    (master_doc, 'blaisedoc', "TD divers",
+     author, 'blaisedoc', 'One line description of project.',
      'Miscellaneous'),
 ]
 

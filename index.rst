@@ -6,6 +6,12 @@
 Bienvenue dans mon espace de travail !
 ======================================
 
+Moi c'est Arthur Blaise. Et là, c'est l'endroit où je stocke une partie des travaux à rendre.
+
+Vous pourrez donc trouver ici certains TD ou autres exercices divers et variés créés pendant ma scolarité. Une `version pdf <https://readthedocs.org/projects/algorithmique/downloads/pdf/latest/>`_ de ce site est également téléchargeable, ainsi qu'une `version Epub <https://readthedocs.org/projects/algorithmique/downloads/epub/latest/>`_ (utilisable par exemple dans les applications de liseuses, telle qu'iBook chez Apple).
+
+
+
 .. toctree::
    :maxdepth: 2
    :caption: Contenu:
