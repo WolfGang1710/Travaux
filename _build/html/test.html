@@ -1,0 +1,233 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Algorithmique et programmation procédurale &mdash; Documentation Programmation </title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Recherche" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Programmation
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contenu:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="algo.html">Algorithmique et programmation procédurale</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Programmation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Algorithmique et programmation procédurale</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/test.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="algorithmique-et-programmation-procedurale">
+<h1>Algorithmique et programmation procédurale<a class="headerlink" href="#algorithmique-et-programmation-procedurale" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="td-elements-de-base-structures">
+<h2>TD Eléments de base – Structures<a class="headerlink" href="#td-elements-de-base-structures" title="Lien permanent vers ce titre">¶</a></h2>
+<p><strong>Consigne :</strong> <em>Entrer des valeurs de pièces (0.1€, 0.2€, 0.5€, 1€, 2€).</em>
+Contrôler la saisie et arrêter quand la valeur de la pièce est nulle. Puis, constituer des rouleaux de 10 pièces de même valeur et des sacs de 20 rouleaux. Afficher alors, pour chaque type de pièces, le nombre de rouleaux, de sacs et de pièces non emballées.</p>
+<div class="highlight-ocaml notranslate"><div class="highlight"><pre><span></span><span class="nc">PROGRAMME</span> <span class="n">tic</span><span class="o">-</span><span class="n">tac</span><span class="o">-</span><span class="n">boum</span>
+<span class="nc">VARIABLES</span>
+    <span class="n">n1</span><span class="o">,</span><span class="n">n2</span><span class="o">,</span><span class="n">n5</span><span class="o">,</span><span class="n">n10</span><span class="o">,</span><span class="n">n20</span> <span class="o">:</span> <span class="nc">ENTIER</span>  <span class="o">//</span><span class="n">nombre</span> <span class="n">de</span> <span class="n">pièces</span> <span class="n">par</span> <span class="k">type</span>
+    <span class="n">r1</span><span class="o">,</span><span class="n">r2</span><span class="o">,</span><span class="n">r5</span><span class="o">,</span><span class="n">r10</span><span class="o">,</span><span class="n">r20</span> <span class="o">:</span> <span class="nc">ENTIER</span>  <span class="o">//</span><span class="n">nombre</span> <span class="n">de</span> <span class="n">rouleaux</span>
+    <span class="n">s1</span><span class="o">,</span><span class="n">s2</span><span class="o">,</span><span class="n">s5</span><span class="o">,</span><span class="n">s10</span><span class="o">,</span><span class="n">s20</span> <span class="o">:</span> <span class="nc">ENTIER</span>  <span class="o">//</span><span class="n">nombre</span> <span class="n">de</span> <span class="n">sacs</span>
+<span class="nc">DEBUT</span>
+    <span class="n">n2</span><span class="o">,</span><span class="n">n5</span><span class="o">,</span><span class="n">n10</span><span class="o">,</span><span class="n">n20</span> <span class="o">&lt;-</span> <span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span>
+    <span class="o">//</span><span class="n">on</span> <span class="n">récupère</span> <span class="n">le</span> <span class="n">nombre</span> <span class="n">de</span> <span class="n">pièces</span> <span class="n">de</span> <span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="n">e</span>
+    <span class="nc">ECRIRE</span><span class="o">(</span><span class="s2">&quot;Nombre de pièces de 0.1€&quot;</span><span class="o">)</span>
+    <span class="nc">LIRE</span><span class="o">(</span><span class="n">p1</span><span class="o">)</span>
+    <span class="nc">SI</span> <span class="o">(</span><span class="n">p1</span><span class="o">&lt;&gt;</span><span class="mi">0</span><span class="o">)</span> <span class="nc">ALORS</span><span class="o">:</span>
+        <span class="o">//</span><span class="n">idem</span> <span class="n">pour</span> <span class="n">les</span> <span class="n">pièce</span> <span class="n">de</span> <span class="mi">0</span><span class="o">.</span><span class="mi">2</span><span class="n">e</span>
+        <span class="nc">ECRIRE</span><span class="o">(</span><span class="s2">&quot;Nombre de pièces de 0.2€&quot;</span><span class="o">)</span>
+        <span class="nc">LIRE</span><span class="o">(</span><span class="n">p2</span><span class="o">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Arthur Blaise.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

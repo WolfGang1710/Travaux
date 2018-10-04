@@ -1,0 +1,42 @@
+==========================================
+Algorithmique et programmation procédurale
+==========================================
+
+--------------------------------
+TD Eléments de base – Structures
+--------------------------------
+
+
+Exercices sur les pièces (#13)
+------------------------------
+
+**Consigne :** *Entrer des valeurs de pièces (0.1€, 0.2€, 0.5€, 1€, 2€).
+Contrôler la saisie et arrêter quand la valeur de la pièce est nulle. Puis, constituer des rouleaux de 10 pièces de même valeur et des sacs de 20 rouleaux. Afficher alors, pour chaque type de pièces, le nombre de rouleaux, de sacs et de pièces non emballées.*
+
+
+.. code-block:: none
+
+    PROGRAMME money
+    VARIABLES
+        n1,n2,n3,n4,n5 : ENTIER //Nombre de pièces par type
+        r1,r2,r3,r4,r5 : ENTIER //Nombre de rouleaux
+        s1,s2,s3,s4,s5 : ENTIER //Nombre de sacs
+    DEBUT
+    FIN
+
+Exercice de l’horloge (#14)
+---------------------------
+
+**Consigne :** *Créer un compte à rebours (heures, minutes, secondes) qui affichera «boum» à 00:00:00*
+
+
+-------
+Botinfo
+-------
+
+**Syntax:** :code:`botinfo`
+
+This command sends a short presentation text of the bot, so that you know it a little better. It will also give you some links that may be useful to you (like the one to invite the bot, or to access its Discord server).
+
+.. note:: For this command, ZBot doesn't need any specific permission! Good news, isn't it?
+

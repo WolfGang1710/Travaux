@@ -1,0 +1,104 @@
+==========================================
+Algorithmique et programmation procédurale
+==========================================
+
+--------------------------------
+TD Eléments de base – Structures
+--------------------------------
+
+
+Exercices sur les pièces (#13)
+------------------------------
+
+**Consigne :** *Entrer des valeurs de pièces (0.1€, 0.2€, 0.5€, 1€, 2€).
+Contrôler la saisie et arrêter quand la valeur de la pièce est nulle. Puis, constituer des rouleaux de 10 pièces de même valeur et des sacs de 20 rouleaux. Afficher alors, pour chaque type de pièces, le nombre de rouleaux, de sacs et de pièces non emballées.*
+
+
+.. code-block:: ocaml
+
+    PROGRAMME money
+    VARIABLES
+        n1,n2,n5,n10,n20 : ENTIER  //nombre de pièces par type
+        r1,r2,r5,r10,r20 : ENTIER  //nombre de rouleaux
+        s1,s2,s5,s10,s20 : ENTIER  //nombre de sacs
+    DEBUT
+        n2,n5,n10,n20 <- 0,0,0,0,0
+        ECRIRE("Nombre de pièces de 0.1€")  //on récupère le nombre de pièces de 0.1€
+        LIRE(p1)
+        SI (p1<>0) ALORS:
+            ECRIRE("Nombre de pièces de 0.2€")  //idem pour les pièce de 0.2€
+            LIRE(p2)
+            SI (p2<>0) ALORS:
+                ECRIRE("Nombre de pièces de 0.5€")  //idem pour 0.5€
+                LIRE(p5)
+                SI (p5<>0) ALORS:
+                    ECRIRE("Nombre de pièces de 1€")  //idem pour 1€
+                    LIRE(p10)
+                    SI (p10<>0):
+                        ECRIRE("Nombre de pièces de 2€")  //idem pour 2€
+                        LIRE(p20)
+                    FIN SI
+                FIN SI
+            FIN SI
+        FIN SI
+        r1,n1 <- n1 DIV 10, n1 MOD 10  //r1 récupère le nombre de rouleaux complets de 0.1€, n1 le reste, le tout grâce à une division euclidienne
+        s1,r1 <- n1 DIV 10, n1 MOD 20  //s1 récupère le nombre de sacs complets de 0.1€, r1 tout les rouleaux restants
+        r2,n2 <- n2 DIV 10, n2 MOD 10  //la suite des instructions est sur la même base, seuls les valeurs changent
+        s2,r2 <- r2 DIV 10, r2 MOD 20
+        r5,n5 <- n5 DIV 10, n5 MOD 10
+        r5,n5 <- r5 DIV 10, r5 MOD 20
+        r10,n10 <- n10 DIV 10, n10 MOD 10
+        s10,r10 <- r10 DIV 10, r10 MOD 20
+        r20,n20 <- n20 DIV 10, n20 MOD 10
+        s10,r20 <- r20 DIV 10, r20 MOD 20
+        ECRIRE("Il y a ",s1," sacs ",r1," rouleaux ",p1," pièces de 0.1€, \n",
+			s2," sacs ",r2," rouleaux ",p2," pièces de 0.2€, \n",
+			s5," sacs ",r5," rouleaux ",p5," pièces de 0.5€, \n",
+			s10," sacs ",r10," rouleaux ",p10," pièces de 1€, et \n",
+			s20," sacs ",r20," rouleaux ",p20," pièces de 2€")
+    FIN
+
+
+Exercice de l’horloge (#14)
+---------------------------
+
+**Consigne :** *Créer un compte à rebours (heures, minutes, secondes) qui affichera «boum» à 00:00:00*
+
+
+.. code-block:: ocaml
+
+    PROGRAMME tic-tac-boum
+    VARIABLES
+        h,m,s : ENTIER  //Heures, minutes et secondes restantes
+    DEBUT
+        ECRIRE("Saisissez le temps restant (heures, minutes et secondes) : ")
+        LIRE(h,m,s)
+        TANT QUE (h<>0 OU m<>0 OU s<>0) :
+            s <- s-1
+            SI (s<0 ET (m>0 OU h>0) ALORS :
+                m <- m-1    
+                s <- 59
+                SI (m<0 ET h>0) ALORS :
+                    h <- h-1
+                    m <- 59
+                FIN SI
+            FIN SI
+        ECRIRE(h,":",m,":",s)
+        FIN TANT QUE
+        ECRIRE("BOUM !")
+    FIN
+
+On pourra éventuellement ajouter avant la boucle TANT QUE une sécurité permettant d'empêcher un nombre supérieur à 59 de minutes ou de secondes : 
+
+.. code-block:: ocaml
+
+    TANT QUE (s>59) :
+        s <- s-60
+        m <- m+1
+    FIN TANT QUE
+    TANT QUE (m>59) :
+        m <- m-60
+        h <- h+1
+    FIN TANT QUE
+
+Enfin, pour plus de réalisme, il est possible d'ajouter une instruction demandant au code d'attendre une seconde, dans la boucle TANT QUE. Cela permettra d'attendre une seconde entre deux décomptes, au lieu de tout afficher quasi-instantanément.
