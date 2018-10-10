@@ -201,3 +201,42 @@ Résolution du second degré
     	s.calc(a,b,c)
     	ECIRE("Les deux solutions sont",s.r_one,"et",s.r_two)
 	FIN
+
+Opérations complexes
+--------------------
+
+**Consigne :** *Ecrire deux fonctions qui permettent de passer un nombre complexe de sa forme algébrique à sa forme exponentielle, puis d'additionner deux complexes sous leur forme algébrique.*
+
+.. code-block:: ocaml
+	
+    TYPE
+        STRUCTURE algComplex
+            reel:float
+            img:float
+    
+        STRUCTURE expComplex
+            arg:float
+            modul:float
+
+    FONCTION switch(a:algComplex):expComplex //passer de la forme algébrique à la forme exponentielle
+    VAR x:expComplex
+        acos:float  //angle trouvé par cosinus
+	asin:float //angle trouvé par sinus
+    DEBUT
+        x.modul = sqrt(a.reel**2 + a.img**2)
+        t_one = arccos(a.reel/abs(x.modul))/pi
+        t_two = arcsin(a.img/abs(x.modul))/pi
+        SI -t_one = t_two ALORS:  //si l'angle trouvé par cosinus est l'opposé de l'angle trouvé par sinus
+            x.arg = t_two  //l'angle final prend la valeur du sinus
+        SINON:
+            x.arg = arccos(cos(-t_one))  //l'ange final prend la valeur de l'angle dont le cosinus est l'opposé du sinus
+        RETOURNER(x)
+    FIN
+
+    FONCTION algAdd(a:algComplex,b:algComplex):algComplex //additionner deux formes algébriques
+    VAR x:algComplex
+    DEBUT
+        x.reel = a.reel + b.reel  //on additionne les réels
+        x.imaginaire = a.imaginaire + b.imaginaire //on additionne les imaginaires
+        RETOURNER(x)
+    FIN
