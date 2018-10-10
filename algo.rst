@@ -129,6 +129,36 @@ On pourra éventuellement ajouter avant la boucle TANT QUE une sécurité permet
 
 Enfin, pour plus de réalisme, il est possible d'ajouter une instruction demandant au code d'attendre une seconde, dans la boucle TANT QUE. Cela permettra d'attendre une seconde entre deux décomptes, au lieu de tout afficher quasi-instantanément.
 
+PGCD
+----
+
+**Consigne :** *Ecrire une fonction permettant de calculer le plus grand diviseur commun de deux entiers naturels.*
+
+.. code-block:: ocaml
+    FONCTION PGCD(a:INT,b:INT) :INT
+    VAR I,m : INT
+    DEBUT
+        m = 0
+        POUR I DE 1 A a:
+            SI (a MOD I = 0) ET (b MOD I = 0) ALORS:
+                    m <- I        
+	    FIN SI
+        FIN POUR
+        RETURN m
+    FIN
+
+
+    PROGRAMME pgcd
+    VAR x,y,r : ENTIER
+    DEBUT
+        ECRIRE("Saisissez les deux entiers positifs")
+        LIRE(x,y)
+        r <- PGCD(x,y)
+        ECRIRE("Le PGCD de ",x," et ",y," est ",r)
+    FIN
+
+
+
 ---------------------------
 TD Structures - Les classes
 ---------------------------
