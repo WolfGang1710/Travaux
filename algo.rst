@@ -218,7 +218,8 @@ Opérations complexes
             arg:float
             modul:float
 
-    FONCTION switch(a:algComplex):expComplex //passer de la forme algébrique à la forme exponentielle
+
+    FONCTION switch(a:algComplex) : expComplex //passer de la forme algébrique à la forme exponentielle
     VAR x:expComplex
         acos:float  //angle trouvé par cosinus
 	asin:float //angle trouvé par sinus
@@ -233,10 +234,12 @@ Opérations complexes
         RETOURNER(x)
     FIN
 
-    FONCTION algAdd(a:algComplex,b:algComplex):algComplex //additionner deux formes algébriques
+    FONCTION algAdd(a:algComplex,b:algComplex) : algComplex //additionner deux formes algébriques
     VAR x:algComplex
     DEBUT
         x.reel = a.reel + b.reel  //on additionne les réels
         x.imaginaire = a.imaginaire + b.imaginaire //on additionne les imaginaires
         RETOURNER(x)
     FIN
+
+Je ne suis pas sûr de la formule pour calculer l'argument d'un complexe à partir de sa valeur algébrique, mais après tout... c'est un cours d'informatique, pas de maths, n'est-ce pas ?
