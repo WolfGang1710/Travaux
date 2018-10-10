@@ -225,8 +225,8 @@ Opérations complexes
 	asin:float //angle trouvé par sinus
     DEBUT
         x.modul = sqrt(a.reel**2 + a.img**2)
-        t_one = arccos(a.reel/abs(x.modul))/pi
-        t_two = arcsin(a.img/abs(x.modul))/pi
+        t_one = arccos(a.reel/x.modul)/pi
+        t_two = arcsin(a.img/x.modul)/pi
         SI -t_one = t_two ALORS:  //si l'angle trouvé par cosinus est l'opposé de l'angle trouvé par sinus
             x.arg = t_two  //l'angle final prend la valeur du sinus
         SINON:
@@ -259,7 +259,7 @@ Opérations complexes
 	algb = switch2(b)
 	algsomme = algAdd(alga,algb)
 	RETOURNER(switch(aglsomme))
-   FIN
+    FIN
 	
 
 Je ne suis pas sûr de la formule pour calculer l'argument d'un complexe à partir de sa valeur algébrique, mais après tout... c'est un cours d'informatique, pas de maths, n'est-ce pas ?
