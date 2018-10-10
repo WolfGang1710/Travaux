@@ -128,3 +128,45 @@ On pourra éventuellement ajouter avant la boucle TANT QUE une sécurité permet
     FIN TANT QUE
 
 Enfin, pour plus de réalisme, il est possible d'ajouter une instruction demandant au code d'attendre une seconde, dans la boucle TANT QUE. Cela permettra d'attendre une seconde entre deux décomptes, au lieu de tout afficher quasi-instantanément.
+
+---------------------------
+TD Structures - Les classes
+---------------------------
+
+
+Résolution du second degré
+--------------------------
+
+**Consigne :** *Définir en algorithmique, une structure nommée Eq2D qui permet de définir l'ensemble des solutions d'une équation du second degré.*
+
+
+.. code-block:: ocaml
+
+    TYPE
+    STRUCTURE soluces
+        r_one:float //première racine
+        r_two:float //deuxième racine
+        delta:float
+        
+        PROCEDURE calc (self,a:float,b:float,c:float)
+        DEBUT
+            self.delta = b**2 - 4*a*c
+            SI self.delta < 0 ALORS
+                self.r_one,self.r_two = None
+            SINON SI self.delta > 0 ALORS
+                self.r_one = (-b-sqrt(self.delta))/(2*a)
+                self.r_two = (-b+sqrt(self.delta))/(2*a)
+            SINON
+                self.r_one,self.r_two = -b/(2*a)
+            FIN SI
+        FIN
+
+    PROGRAMME superSoluce
+    VAR a,b,c:float
+	s:SOLUCES
+    DEBUT
+    	ECRIRE("Entrez les coefficients")
+    	SAISIR(a,b,c)
+    	s.calc(a,b,c)
+    	ECIRE("Les deux solutions sont",s.r_one,"et",s.r_two)
+	FIN
