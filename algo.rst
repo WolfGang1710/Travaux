@@ -259,6 +259,7 @@ Opérations complexes
 	algb = switch2(b)
 	algsomme = algAdd(alga,algb)
 	RETOURNER(switch(aglsomme))
+   FIN
 	
 
 Je ne suis pas sûr de la formule pour calculer l'argument d'un complexe à partir de sa valeur algébrique, mais après tout... c'est un cours d'informatique, pas de maths, n'est-ce pas ?
