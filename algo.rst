@@ -234,6 +234,14 @@ Opérations complexes
         RETOURNER(x)
     FIN
 
+    FONCTION switch2(a:expComplex) : algComplex //passer de la forme exponentielle à la forme algébrique
+    VAR x:algComplex
+    DEBUT
+        x.reel = random(-100,100) //on suppose le calcul de la partie réelle
+	x.img = random(-100,100) //on suppose le calcul de la partie imaginaire
+	RETOURNER(x)
+    FIN
+
     FONCTION algAdd(a:algComplex,b:algComplex) : algComplex //additionner deux formes algébriques
     VAR x:algComplex
     DEBUT
