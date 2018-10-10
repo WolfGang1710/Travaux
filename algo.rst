@@ -135,6 +135,7 @@ PGCD
 **Consigne :** *Ecrire une fonction permettant de calculer le plus grand diviseur commun de deux entiers naturels.*
 
 .. code-block:: ocaml
+
     FONCTION PGCD(a:INT,b:INT) :INT
     VAR I,m : INT
     DEBUT
