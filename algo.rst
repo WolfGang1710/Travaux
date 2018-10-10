@@ -237,8 +237,8 @@ Opérations complexes
     FONCTION switch2(a:expComplex) : algComplex //passer de la forme exponentielle à la forme algébrique
     VAR x:algComplex
     DEBUT
-        x.reel = random(-100,100) //on suppose le calcul de la partie réelle
-	x.img = random(-100,100) //on suppose le calcul de la partie imaginaire
+        x.reel = a.modul*cos(a.arg)
+	x.img = a.modul*sin(a.arg)
 	RETOURNER(x)
     FIN
 
@@ -249,5 +249,16 @@ Opérations complexes
         x.imaginaire = a.imaginaire + b.imaginaire //on additionne les imaginaires
         RETOURNER(x)
     FIN
+    
+    FONCTION expAdd(a:expComplex,b:expComplex) : expComplex //additionner deux formes exponentielles
+    VAR alga:algComplex //a, sous forme algébrique
+	algb:algComplex //idem pour b
+	algsomme:algComplex //la somme sous forme algébrique
+    DEBUT
+        alga = switch2(a)
+	algb = switch2(b)
+	algsomme = algAdd(alga,algb)
+	RETOURNER(switch(aglsomme))
+	
 
 Je ne suis pas sûr de la formule pour calculer l'argument d'un complexe à partir de sa valeur algébrique, mais après tout... c'est un cours d'informatique, pas de maths, n'est-ce pas ?
