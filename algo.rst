@@ -300,7 +300,7 @@ Factorielle itérative
 Division euclidienne
 --------------------
 
-**Consigne :** *Écrire une  fonction  récursive  qui  calcule  le  quotient  de  la  division  entière  de deux nombres strictement positifs.*
+**Consigne :** *Écrire deux fonctions récursives qui calculent  le  quotient et le reste de la division entière de deux nombres strictement positifs.*
 
 
 .. code-block:: ocaml
@@ -315,4 +315,7 @@ Division euclidienne
 	d = quotient(a,b,c,i+1)
 	RETOURNER(d)
     FIN
+    
+    FONCTION reste(a,b,c,i:int) : int
+    
 	
