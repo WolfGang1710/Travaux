@@ -275,3 +275,24 @@ Opérations complexes
 	
 
 Je ne suis pas sûr de la formule pour calculer l'argument d'un complexe à partir de sa valeur algébrique, mais après tout... c'est un cours d'informatique, pas de maths, n'est-ce pas ?
+
+--------------
+TD Récursivité
+--------------
+
+Factorielle itérative
+---------------------
+
+**Consigne :** *Créer une fonction qui calcule la factorielle d'un nombre en utilisant une itération.*
+
+.. code-block:: ocaml
+
+    FONCTION fact (n:int) : int
+    VAR i:int //itération
+        s:int //total
+    DEBUT
+        s = 1
+        POUR i de 1 à n:
+	    s = s*i
+	RETOURNER(s)
+    FIN
