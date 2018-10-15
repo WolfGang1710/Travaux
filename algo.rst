@@ -296,3 +296,20 @@ Factorielle itérative
 	    s = s*i
 	RETOURNER(s)
     FIN
+
+**Consigne :** *Écrire une  fonction  récursive  qui  calcule  le  quotient  de  la  division  entière  de deux nombres strictement positifs.*
+
+
+.. code-block:: ocaml
+
+    FONCTION quotient(a,b,c,i:int) : int
+    VAR r:int //résultat
+    DEBUT
+        SI a<i OU b<i ALORS
+	    RETOURNER(c)
+	SINON SI a*i<=b OU b*i<=a ALORS
+	    c = i
+	d = quotient(a,b,c,i+1)
+	RETOURNER(d)
+    FIN
+	
