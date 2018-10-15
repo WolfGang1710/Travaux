@@ -297,6 +297,9 @@ Factorielle itérative
 	RETOURNER(s)
     FIN
 
+Division euclidienne
+--------------------
+
 **Consigne :** *Écrire une  fonction  récursive  qui  calcule  le  quotient  de  la  division  entière  de deux nombres strictement positifs.*
 
 
