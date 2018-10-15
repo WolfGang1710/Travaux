@@ -136,7 +136,7 @@ PGCD
 
 .. code-block:: ocaml
 
-    FONCTION PGCD(a:INT,b:INT) :INT
+    FONCTION PGCD(a:INT, b:INT) :INT
     VAR I,m : INT
     DEBUT
         m = 0
@@ -179,7 +179,7 @@ Résolution du second degré
         r_two:float //deuxième racine
         delta:float
         
-        PROCEDURE calc (self,a:float,b:float,c:float)
+        PROCEDURE calc (self,a:float, b:float, c:float)
         DEBUT
             self.delta = b**2 - 4*a*c
             SI self.delta < 0 ALORS
@@ -201,6 +201,18 @@ Résolution du second degré
     	s.calc(a,b,c)
     	ECIRE("Les deux solutions sont",s.r_one,"et",s.r_two)
 	FIN
+
+On peut aussi définir une fonction qui va calculer ces racines, au lieu d'un programme : 
+
+.. code-block:: ocaml
+
+    FONCTION superSoluce (a:float, b:float, c:float) : SOLUCES
+    VAR s:SOLUCES
+    DEBUT
+        s.calc(a,b,c)
+	RETOURNER(s)
+    FIN
+
 
 Opérations complexes
 --------------------
@@ -242,7 +254,7 @@ Opérations complexes
 	RETOURNER(x)
     FIN
 
-    FONCTION algAdd(a:algComplex,b:algComplex) : algComplex //additionner deux formes algébriques
+    FONCTION algAdd(a:algComplex, b:algComplex) : algComplex //additionner deux formes algébriques
     VAR x:algComplex
     DEBUT
         x.reel = a.reel + b.reel  //on additionne les réels
@@ -250,7 +262,7 @@ Opérations complexes
         RETOURNER(x)
     FIN
     
-    FONCTION expAdd(a:expComplex,b:expComplex) : expComplex //additionner deux formes exponentielles
+    FONCTION expAdd(a:expComplex, b:expComplex) : expComplex //additionner deux formes exponentielles
     VAR alga:algComplex //a, sous forme algébrique
 	algb:algComplex //idem pour b
 	algsomme:algComplex //la somme sous forme algébrique
