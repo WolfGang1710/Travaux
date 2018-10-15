@@ -174,7 +174,7 @@ Résolution du second degré
 .. code-block:: ocaml
 
     TYPE
-    STRUCTURE soluces
+    STRUCTURE Eq2D
         r_one:float //première racine
         r_two:float //deuxième racine
         delta:float
@@ -194,7 +194,7 @@ Résolution du second degré
 
     PROGRAMME superSoluce
     VAR a,b,c:float
-	s:SOLUCES
+	s:Eq2D
     DEBUT
     	ECRIRE("Entrez les coefficients")
     	SAISIR(a,b,c)
@@ -206,8 +206,8 @@ On peut aussi définir une fonction qui va calculer ces racines, au lieu d'un pr
 
 .. code-block:: ocaml
 
-    FONCTION superSoluce (a:float, b:float, c:float) : SOLUCES
-    VAR s:SOLUCES
+    FONCTION superSoluce (a:float, b:float, c:float) : Eq2D
+    VAR s:Eq2D
     DEBUT
         s.calc(a,b,c)
 	RETOURNER(s)
