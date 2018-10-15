@@ -142,10 +142,10 @@ PGCD
         m = 0
         POUR I DE 1 A a:
             SI (a MOD I = 0) ET (b MOD I = 0) ALORS:
-                    m <- I        
-	    FIN SI
+                m <- I        
+	        FIN SI
         FIN POUR
-        RETURN m
+        RETOURNER(m)
     FIN
 
 
@@ -181,20 +181,20 @@ Résolution du second degré
         
         PROCEDURE calc (self,a:float, b:float, c:float)
         DEBUT
-            self.delta = b**2 - 4*a*c
+            self.delta <- b**2 - 4*a*c
             SI self.delta < 0 ALORS
                 self.r_one,self.r_two = None
             SINON SI self.delta > 0 ALORS
-                self.r_one = (-b-sqrt(self.delta))/(2*a)
-                self.r_two = (-b+sqrt(self.delta))/(2*a)
+                self.r_one <- (-b-sqrt(self.delta))/(2*a)
+                self.r_two <- (-b+sqrt(self.delta))/(2*a)
             SINON
-                self.r_one,self.r_two = -b/(2*a)
+                self.r_one,self.r_two <- -b/(2*a)
             FIN SI
         FIN
 
     PROGRAMME superSoluce
     VAR a,b,c:float
-	s:Eq2D
+	    s:Eq2D
     DEBUT
     	ECRIRE("Entrez les coefficients")
     	SAISIR(a,b,c)
@@ -210,7 +210,7 @@ On peut aussi définir une fonction qui va calculer ces racines, au lieu d'un pr
     VAR s:Eq2D
     DEBUT
         s.calc(a,b,c)
-	RETOURNER(s)
+	    RETOURNER(s)
     FIN
 
 
@@ -234,15 +234,16 @@ Opérations complexes
     FONCTION switch(a:algComplex) : expComplex //passer de la forme algébrique à la forme exponentielle
     VAR x:expComplex
         acos:float  //angle trouvé par cosinus
-	asin:float //angle trouvé par sinus
+	    asin:float //angle trouvé par sinus
     DEBUT
-        x.modul = sqrt(a.reel**2 + a.img**2)
-        t_one = arccos(a.reel/x.modul)/pi
-        t_two = arcsin(a.img/x.modul)/pi
-        SI -t_one = t_two ALORS:  //si l'angle trouvé par cosinus est l'opposé de l'angle trouvé par sinus
-            x.arg = t_two  //l'angle final prend la valeur du sinus
+        x.modul <- sqrt(a.reel**2 + a.img**2)
+        t_one <- arccos(a.reel/x.modul)/pi
+        t_two <- arcsin(a.img/x.modul)/pi
+        SI -t_one <- t_two ALORS:  //si l'angle trouvé par cosinus est l'opposé de l'angle trouvé par sinus
+            x.arg <- t_two  //l'angle final prend la valeur du sinus
         SINON:
-            x.arg = arccos(cos(-t_one))  //l'ange final prend la valeur de l'angle dont le cosinus est l'opposé du sinus
+            x.arg <- arccos(cos(-t_one))  //l'ange final prend la valeur de l'angle dont le cosinus est l'opposé du sinus
+        FIN SI
         RETOURNER(x)
     FIN
 
@@ -250,15 +251,15 @@ Opérations complexes
     VAR x:algComplex
     DEBUT
         x.reel = a.modul*cos(a.arg)
-	x.img = a.modul*sin(a.arg)
-	RETOURNER(x)
+	    x.img = a.modul*sin(a.arg)
+	    RETOURNER(x)
     FIN
 
     FONCTION algAdd(a:algComplex, b:algComplex) : algComplex //additionner deux formes algébriques
     VAR x:algComplex
     DEBUT
-        x.reel = a.reel + b.reel  //on additionne les réels
-        x.imaginaire = a.imaginaire + b.imaginaire //on additionne les imaginaires
+        x.reel <- a.reel + b.reel  //on additionne les réels
+        x.imaginaire <- a.imaginaire + b.imaginaire //on additionne les imaginaires
         RETOURNER(x)
     FIN
     
@@ -267,10 +268,10 @@ Opérations complexes
 	algb:algComplex //idem pour b
 	algsomme:algComplex //la somme sous forme algébrique
     DEBUT
-        alga = switch2(a)
-	algb = switch2(b)
-	algsomme = algAdd(alga,algb)
-	RETOURNER(switch(aglsomme))
+        alga <- switch2(a)
+	    algb <- switch2(b)
+	    algsomme <- algAdd(alga,algb)
+	    RETOURNER(switch(aglsomme))
     FIN
 	
 
@@ -291,10 +292,11 @@ Factorielle itérative
     VAR i:int //itération
         s:int //total
     DEBUT
-        s = 1
+        s <- 1
         POUR i de 1 à n:
-	    s = s*i
-	RETOURNER(s)
+	        s <- s*i
+        FIN POUR
+	    RETOURNER(s)
     FIN
 
 Division euclidienne
@@ -309,13 +311,23 @@ Division euclidienne
     VAR r:int //résultat
     DEBUT
         SI a<i OU b<i ALORS
-	    RETOURNER(c)
-	SINON SI a*i<=b OU b*i<=a ALORS
-	    c = i
-	d = quotient(a,b,c,i+1)
-	RETOURNER(d)
+	        RETOURNER(c)
+	    SINON SI a*i<=b OU b*i<=a ALORS
+	        c <- i
+        FIN SI
+	    r <- quotient(a,b,c,i+1)
+	    RETOURNER(r)
     FIN
     
     FONCTION reste(a,b,c,i:int) : int
-    
+    VAR r:int //résultat
+    DEBUT
+        SI a<i OU b<i ALORS
+            RETOURNER(c)
+        SINON SI a*i<=b OU b*i<=a ALORS
+	        c <- ABS(MIN(a*i-b , b*i-a))
+        FIN SI
+	    r <- quotient(a,b,c,i+1)
+	    RETOURNER(r)
+    FIN
 	
