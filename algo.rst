@@ -404,3 +404,18 @@ Power
             RETOURNER(n)
         FIN SI
     FIN
+
+*Puis la même fonction, en récursion terminale.*
+
+.. code-block:: ocaml
+
+    FONCTION term(n,k,i : int) : int
+    DEBUT
+        SI k=0 ALORS
+            RETOURNER(1)
+        SINON SI i=k ALORS
+            RETOURNER(n**k)
+        SINON
+            RETOURNER(Term(n,k,i+1))
+        FIN SI
+    FIN
