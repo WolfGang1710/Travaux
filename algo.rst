@@ -384,3 +384,23 @@ Fonction itérative :
         FIN POUR
         RETOURNER(rep)
     FIN
+
+
+Power
+-----
+
+**Consigne :** *Écrire la fonction récursive puissance qui calcule n^k de façon naïve en considérant que n^k= n*n(k-1) et que n^0 = 1*
+
+
+.. code-block:: ocaml
+    
+    FONCTION naive(n,k,i : int) : int
+    DEBUT
+        SI k=0 ALORS
+            RETOURNER(1)
+        SINON SI i<k-1 ALORS
+            RETOURNER(Naive(n,k,i+1)*n
+        SINON
+            RETOURNER(n)
+        FIN SI
+    FIN
