@@ -294,9 +294,9 @@ Factorielle itérative
     DEBUT
         s <- 1
         POUR i de 1 à n:
-	        s <- s*i
+            s <- s*i
         FIN POUR
-	    RETOURNER(s)
+            RETOURNER(s)
     FIN
 
 Division euclidienne
@@ -315,7 +315,7 @@ Division euclidienne
         SINON SI a*i<=b OU b*i<=a ALORS
             c <- i
         FIN SI
-        r <- quotient(a,b,c,i+1)
+        r <- Quotient(a,b,c,i+1)
         RETOURNER(r)
     FIN
     
@@ -327,7 +327,7 @@ Division euclidienne
         SINON SI a*i<=b OU b*i<=a ALORS
             c <- ABS(MIN(a*i-b , b*i-a))
         FIN SI
-        r <- quotient(a,b,c,i+1)
+        r <- Reste(a,b,c,i+1)
         RETOURNER(r)
     FIN
 	
@@ -344,10 +344,43 @@ Palindromes
         SI n > len(text)/2 ALORS
             RETOURNER(Vrai)
         SINON SI text[n]=text[-n-1] ALORS
-            RETOURNER(check(text,n+1)
+            RETOURNER(Check(text,n+1)
         SINON
             RETOURNER(Faux)
         FIN SI
     FIN
 
 On suppose que la fonction REPLACE prend en paramètre trois chaines de caractères et retourne une copie de la chaîne de caractères dans laquelle les occurrences de la deuxième ont été remplacées par la troisième.
+
+Miroir
+------
+
+**Consigne :** *Écrire  un algorithme  récursif qui  permet  de réaliser cette fonction, et puis proposer une version itérative équivalente.*
+
+Fonction récursive : 
+
+.. code-block:: ocaml
+
+    FONCTION miroir(text:string, n:int, rep:string) : string
+    DEBUT
+        SI n = len(text) ALORS
+            RETOURNER(rep)
+        FIN SI
+        rep <- text[n]+rep
+        RETOURNER(Miroir(text,n+1,rep))
+    FIN
+
+
+Fonction itérative :
+
+.. code-block:: ocaml
+
+    FONCTION miroir2(text:string) : string
+    VAR i:int //itération
+        rep:string //résultat
+    DEBUT
+        POUR i DANS text:
+            rep <- i+rep
+        FIN POUR
+        RETOURNER(rep)
+    FIN
