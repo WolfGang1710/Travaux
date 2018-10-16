@@ -331,3 +331,23 @@ Division euclidienne
 	    RETOURNER(r)
     FIN
 	
+Palindromes
+-----------
+
+**Consigne :** *Écrire un algorithme récursif qui permet de vérifier si une chaîne de caractères est un palindrome ou non.*
+
+.. code-block:: ocaml
+
+    FONCTION palindrome(text:string, n:int) : bool
+    DEBUT
+        text <- REPLACE(text," ","")
+        SI n > len(text)/2 ALORS
+            RETOURNER(Vrai)
+        SINON SI text[n]=text[-n-1] ALORS
+            RETOURNER(check(text,n+1)
+        SINON
+            RETOURNER(Faux)
+        FIN SI
+    FIN
+
+On suppose que la fonction REPLACE prend en paramètre trois chaines de caractères et retourne une copie de la chaîne de caractères dans laquelle les occurrences de la deuxième ont été remplacées par la troisième.
