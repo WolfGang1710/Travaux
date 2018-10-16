@@ -311,12 +311,12 @@ Division euclidienne
     VAR r:int //résultat
     DEBUT
         SI a<i OU b<i ALORS
-	        RETOURNER(c)
-	    SINON SI a*i<=b OU b*i<=a ALORS
-	        c <- i
+            RETOURNER(c)
+        SINON SI a*i<=b OU b*i<=a ALORS
+            c <- i
         FIN SI
-	    r <- quotient(a,b,c,i+1)
-	    RETOURNER(r)
+        r <- quotient(a,b,c,i+1)
+        RETOURNER(r)
     FIN
     
     FONCTION reste(a,b,c,i:int) : int
@@ -325,10 +325,10 @@ Division euclidienne
         SI a<i OU b<i ALORS
             RETOURNER(c)
         SINON SI a*i<=b OU b*i<=a ALORS
-	        c <- ABS(MIN(a*i-b , b*i-a))
+            c <- ABS(MIN(a*i-b , b*i-a))
         FIN SI
-	    r <- quotient(a,b,c,i+1)
-	    RETOURNER(r)
+        r <- quotient(a,b,c,i+1)
+        RETOURNER(r)
     FIN
 	
 Palindromes
