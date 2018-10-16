@@ -344,7 +344,7 @@ Palindromes
         SI n > len(text)/2 ALORS
             RETOURNER(Vrai)
         SINON SI text[n]=text[-n-1] ALORS
-            RETOURNER(Check(text,n+1)
+            RETOURNER(Palindrome(text,n+1)
         SINON
             RETOURNER(Faux)
         FIN SI
