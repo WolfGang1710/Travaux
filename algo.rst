@@ -409,14 +409,12 @@ Power
 
 .. code-block:: ocaml
 
-    FONCTION term(n,k,i : int) : int
+    FONCTION term(n,k,acc : int) : int
     DEBUT
         SI k=0 ALORS
-            RETOURNER(1)
-        SINON SI i=k ALORS
-            RETOURNER(n^k)
+            RETOURNER(acc)
         SINON
-            RETOURNER(Term(n,k,i+1))
+            RETOURNER(Term(n,k-1,acc*n))
         FIN SI
     FIN
 
