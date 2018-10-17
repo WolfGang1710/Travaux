@@ -414,8 +414,31 @@ Power
         SI k=0 ALORS
             RETOURNER(1)
         SINON SI i=k ALORS
-            RETOURNER(n**k)
+            RETOURNER(n^k)
         SINON
             RETOURNER(Term(n,k,i+1))
+        FIN SI
+    FIN
+
+*Puis par dichotomie.*
+
+.. code-block:: ocaml
+
+    FONCTION puissance-dic(n,k,i : int) : int
+    DEBUT
+        SI k=0 ALORS
+            RETOURNER 1
+        SINON SI k MOD 2 = 0 ALORS
+            SI i*2 = k ALORS
+                RETOURNER((n*n)^(1/2))
+            SINON
+                RETOURNER(puissance-dic(n,k,i+1)^2)
+            FIN SI
+        SINON
+            SI i = k-1 ALORS
+                RETOURNER(n)
+            SINON
+                RETOURNER(puissance-dic(n,k,i+1)*n)
+            FIN SI
         FIN SI
     FIN
