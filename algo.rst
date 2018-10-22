@@ -453,7 +453,7 @@ Parité
         SI i=n
             RETOURNER(True)
         SINON
-            RETOURNER(impair(n,i+1)
+            RETOURNER(impair(n,i+1))
         FIN SI
     FIN
     
@@ -462,7 +462,7 @@ Parité
         SI i=n
             RETOURNER(False)
         SINON
-            RETOURNER(pair(n,i+1)
+            RETOURNER(pair(n,i+1))
         FIN SI
     FIN
 
