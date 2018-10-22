@@ -440,3 +440,19 @@ Power
             FIN SI
         FIN SI
     FIN
+
+Parité
+------
+
+**Consigne :** *Un nombre n est pair si n-1 est impair, et un nombre n est impair si n-1 est pair. Partant de cette définition, créez une fonction récursive qui permet de savoir si un nombre entré est pair ou impair.*
+
+.. code-block:: ocaml
+
+    FONCTION pair(n,i=0 : int ,c=True : bool) : bool
+    DEBUT
+        SI i=n ALORS
+            RETOURNER(c)
+        SINON
+            RETOURNER(n,i-1,not c)
+        FIN SI
+    FIN
