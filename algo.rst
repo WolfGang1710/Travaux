@@ -489,6 +489,7 @@ Exercice 1
 ----------
 
 a.  :code:`$ echo $PATH $PS1` 
+
     :code:`export PS1="linux on en veux encore # > "`
 
 On peut même changer la couleur !
@@ -502,7 +503,7 @@ h.  :code:`$ xterm -hc blue -bg cyan -fg brown`
 
 i.  :code:`$ which python3`
 
-j. :code:`$ alias hop=ls`
+j.  :code:`$ alias hop=ls`
 
-k. :code:`$ alias rs="rm -i"`
+k.  :code:`$ alias rs="rm -i"`
 
