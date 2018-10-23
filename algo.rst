@@ -488,4 +488,21 @@ TD Unix - Commandes de base
 Exercice 1
 ----------
 
-1. :code:`$ echo $PATH $PS1`
+a.  :code:`$ echo $PATH $PS1` 
+    :code:`export PS1="linux on en veux encore # > "`
+
+On peut même changer la couleur !
+    :code:`$ export PS1="\e[0;36m\! - linux on en veux encore # > \e[m"`
+
+b.  :code:`$ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m`
+
+d.  :code:`$ cal 10 2018`
+
+h.  :code:`$ xterm -hc blue -bg cyan -fg brown`
+
+i.  :code:`$ which python3`
+
+j. :code:`$ alias hop=ls`
+
+k. :code:`$ alias rs="rm -i"`
+
