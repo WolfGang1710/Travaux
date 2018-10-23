@@ -1,0 +1,194 @@
+\documentclass[13pt]{report}
+
+%import des paquets
+\usepackage{luatextra}
+\usepackage[french]{babel}
+
+\usepackage{fancyhdr}
+
+\usepackage{lastpage}
+\usepackage[a4paper, left=2cm, right=2cm, top=3cm, bottom=3cm]{geometry}
+
+%semaine 2
+\usepackage{hyperref} %liens internes
+\usepackage{hhline} %meilleures lignes dans un tableau
+\usepackage{multirow} %fusion de lignes dans un tableau
+\usepackage{listings}
+
+\usepackage{amsmath} %plus de maths
+
+\pagestyle{fancy}
+
+%infos sur le doc
+\title{Mon premier rapport}
+\author{Arthur \textsc{Blaise}}
+
+%constantes
+\makeatletter
+\let\thetitle\@title
+\let\theauthor\@author
+\let\thedate\@date
+\makeatother
+
+%personnalisation en-têtes et footers
+\fancyhead[C]{\thetitle}
+\fancyhead[L]{\theauthor}
+\fancyhead[R]{\thedate}
+
+\fancyfoot[L]{\rightmark}
+\fancyfoot[R]{\thepage /\pageref{LastPage}}
+\fancyfoot[C]{}
+
+\begin{document}
+	\maketitle
+	
+	\tableofcontents
+	
+	\clearpage
+	
+	\section{Mes sites favoris}
+	
+	Voici la liste de mes sites favoris :
+	\begin{itemize}
+		\item Moteur de recherche : \href{http://google.fr}{Goooooogle}
+		\item Site de vidéos : \href{https://youtube.com}{YouToube}
+		\item Logiciel de discussion : \href{https://discord.gg}{Discoooord}
+		\item Super lib : \href{https://frmc-lib.rtfd.io}{frmcLib}		
+	\end{itemize}
+	Et puis j'aime bien placer le symbole de \LaTeX \emph{un peu partout...}\\
+
+	Et voilà une citation, pour faire joli : \cite{first}
+	
+	\clearpage
+	
+	\section{Mes résultats au MOOOOOC \LaTeX}
+	
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{|*{4}{c|}}
+				\hline
+				Intitulé & N° & Coef. & Note \\
+				\hline
+				 \multirow{4}{*}{QCM}& 01 &  1   & 1/1 \\
+				 					 & 02 &  2   & 1/1 \\
+				 					 & 03 &  2.5 & 2/1 \\
+				 					 & 04 &  1   &  -  \\
+				 \hline
+				 TP					 & 01 &  4   &  -  \\
+				 \hhline{|*{4}{=|}}
+				\multicolumn{3}{|c|}{Moyenne}    & 1/1 \\
+				 \hline
+			\end{tabular}
+			\caption{Résultats de moi-même}
+		\end{center}
+	\end{table}
+	
+	\clearpage
+	
+	\section{Une image ?}
+
+	\begin{figure}[h]
+		\begin{center}
+			\includegraphics[scale=0.4]{../img/discord.png}
+		\end{center}
+		\caption{Logo de Discord}
+	\end{figure}
+
+	\clearpage
+	
+	\section{Let's make Python!}
+	
+	\lstinputlisting[language=Python, frame=double]{../code/w2.py}
+
+	\clearpage
+	
+	\section{Mathématiques}
+	
+	Ici je met des mathématiques en ligne : \(\sqrt{42}\) en est un exemple.\\
+	\\
+	Et là, voici une équation toute seule : 
+	
+	\[
+	\frac{\sqrt{2}+k_0}{e^{\pi}}
+	\]
+	\\
+	On peut aussi créer un environnement, comme cela : 
+	
+	\begin{equation}
+		e^{i\pi} + \alpha \cdot 2=0
+	\end{equation}
+	\\
+	Et même des sommes ou des produits~!
+	
+	\begin{equation}
+	\sum_{k=0}^{\infty}\frac{y^k}{\pi} = 7 \cdot k
+	\end{equation}
+	
+	\begin{equation}
+	n!=\prod_{k=1}^n k
+	\end{equation}
+	\\
+	Ainsi que des intégrales....
+	
+	$$
+	\int_a^b f(x) \, \mathrm{d}x
+	$$
+	\\
+	Et aussi ça : \((A \leftrightarrow B) \leftrightarrow (A \leftarrow B ~ and ~ A \rightarrow B)\) \\
+	\\
+	Ou des matrices ? \emph{Why not!}
+
+	$$	
+	\left[
+		\begin{array}{c c c}
+		1 & 2 & 3 \\
+		4 & 5 & 6 \\
+		7 & 9 & 9
+		\end{array}
+	\right)
+	$$ 
+	\\
+	Puis des accolades horizontales :
+	
+	\[
+	\underbrace{x+ \cdots + x}_{42 ~\mathit{fois}}
+	\]
+	\\	
+	Et des calculs alignés :
+	\begin{align*}
+		&& x^3 + y^2 &=1 \\
+		&\leftrightarrow& y^2 &= 1-x^3 \\
+		&\Leftrightarrow& y &= \sqrt{1-x^3}	
+	\end{align*}
+	
+	
+	\clearpage
+	
+	\section{Formule quadratique}
+	
+	\begin{align*}
+	&&ax^2 + bx + c& = 0 \\
+	&\rightarrow &x^2 + \frac{b}{a}x + \frac{c}{a}& = 0 \\
+	&\leftrightarrow &x^2 + \frac{b}{a}x& = - \frac{c}{a}
+	\end{align*}
+	
+	Application de la méthode de complétion du carré :
+	
+	\begin{align*}
+	&& x^2 + \frac{b}{a}x + \left(\frac{b}{2a}\right)^2 &= - \frac{c}{a} + \left(\frac{b}{2a}\right)^2 \\
+	&\leftrightarrow& \left(x + \frac{b}{2a}\right)^2   &= - \frac{c}{a} + \frac{b^2}{4a^2} \\
+	&\Leftrightarrow& \left(x + \frac{b}{2a} \right)^2  &= \frac{b^2 - 4ac}{4a^2}
+	\end{align*}
+	
+	Nous obtenons ainsi :
+	
+	\begin{align*}
+	&&x + \frac{b}{2a}  &= \pm \frac{\sqrt{b^2 - 4ac}}{2a} \\
+	&\leftrightarrow& x &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+	\end{align*}
+
+	
+	\bibliographystyle{plain}
+	\bibliography{biblio}
+
+\end{document}
