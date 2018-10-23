@@ -478,3 +478,14 @@ Une autre méthode permet cependant d'écrire ce code en une seule fonction :
             RETOURNER(n,i-1,not c)
         FIN SI
     FIN
+
+
+
+---------------------------
+TD Unix - Commandes de base
+---------------------------
+
+Exercice 1
+----------
+
+1. :code:`$ echo $PATH $PS1`
