@@ -488,18 +488,35 @@ TD Unix - Commandes de base
 Exercice 1
 ----------
 
-a.  :code:`$ echo $PATH $PS1` 
+a.  
 
-    :code:`export PS1="linux on en veux encore # > "`
+.. code-block:: bash
+    
+        $ echo $PATH $PS1
+    /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games 
+    \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ 
+        
+        $ export PS1="linux on en veux encore # > "
 
 On peut même changer la couleur !
     :code:`$ export PS1="\e[0;36m\! - linux on en veux encore # > \e[m"`
 
-b.  :code:`$ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m`
+b.  :code:`$ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m"`
 
 c. La commande :code:`man ls` fonctionne, et affiche un beau pavé de texte explicatif.
 
-d.  :code:`$ cal 10 2018`
+d.  
+
+.. code-block:: bash
+
+        $ cal 10 2018
+        Octobre 2018      
+    di lu ma me je ve sa  
+        1  2  3  4  5  6  
+     7  8  9 10 11 12 13  
+    14 15 16 17 18 19 20  
+    21 22 23 24 25 26 27  
+    28 29 30 31    
 
 e. 
 
@@ -510,15 +527,89 @@ e.
         $ whoami
     blaisearth
 
-f.
+f. La commande :code:`stty -echo` permet de rentrer du texte sans l'afficher à l'écran, comme par exemple un mot de passe.
 
-g.
+g. On peut confirmer, :code:`stty echo` nous permet de voir à nouveau les commandes entrées. C'est plus partique pour continuer le TP...
 
-h.  :code:`$ xterm -hc blue -bg cyan -fg brown`
+h.  
 
-i.  :code:`$ which python3`
+.. code-block:: bash
 
-j.  :code:`$ alias hop=ls`
+        $ xterm -hc blue -bg cyan -fg brown
 
-k.  :code:`$ alias rs="rm -i"`
+i.
+
+.. code-block:: bash
+
+        $ which python3
+    /usr/bin/python3
+
+j.  
+
+.. code-block:: bash
+
+        $ alias hop=ls`
+
+k.
+
+.. code-block:: bash
+
+        $ alias rs="rm -i"
+
+l. 
+.. code-block:: bash
+
+        $touch test.txt
+        $rs test.txt
+    rm : supprimer fichier vide 'test.txt' ? y
+
+
+Exercice 2
+----------
+
+.. code-block:: bash
+
+        $ emacs
+        #appui sur les touches Ctrl-Z
+        $ bg
+        
+        $ sleep 60
+        #Cette commande demande au processus en cours d'attendre 60 secondes sans rien faire.
+        #Pour l'interrompre, il suffit d'appuyer sur les touches Ctrl-C
+        
+        $ ps
+      PID TTY          TIME CMD
+     5092 pts/0    00:00:00 bash
+     5159 pts/0    00:00:00 emacs
+     5202 pts/0    00:00:00 ps
+        $ kill 5159
+        
+Exercice 3
+----------
+
+.. code-block:: bash
+
+        $ pwd
+    /cergy/homee/b/blaisearth
+        $ cd /
+        $ ls
+    bin    dev   initrd.img      lib64       mnt   root  srv  usr      vmlinuz.old
+    boot   etc   initrd.img.old  lost+found  opt   run   sys  var      vms
+    cergy  home  lib             media       proc  sbin  tmp  vmlinuz
+        $ cd ~
+        $ mkdir Prepal
+        $ mkdir Prepal/Info
+        $ cd Prepal/info
+        $ mkdir tmp
+        $ cd tmp
+        $ touch toto
+        $ $ find ../.. | sed 's/[^/]*\//| /g;s/| *\([^| ]\)/+--- \1/'
+    +--- ..
+    | +--- Info
+    | | +--- tmp
+    | | | +--- toto
+        $ cd ..
+        $ rmdir tmp
+    rmdir: impossible de de supprimer 'tmp': Le dossier n'est pas vide
+        $ rm -r tmp
 
