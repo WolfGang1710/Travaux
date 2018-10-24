@@ -590,7 +590,7 @@ Exercice 3
     | | | +--- toto
         $ cd ..
         $ rmdir tmp
-    rmdir: impossible de de supprimer 'tmp': Le dossier n'est pas vide
+    rmdir: impossible de de supprimer 'tmp': Le dossier n est pas vide
         $ rm -r tmp
         
         $ head -n 15 lorem.txt
@@ -610,7 +610,7 @@ Exercice 3
         
         $ cd tmp
         $ cp final.txt "lorem en ipsum".txt
-        $ mv final.txt ~/.local/share/Trash/files #Corbeille de l'ordinateur
+        $ mv final.txt ~/.local/share/Trash/files #Corbeille de l ordinateur
         $ mv "lorem en ipsum.txt" ~/
         $ ls ~/
     Bureau     Images              Modèles  Prepal  Téléchargements  VirtualBox VMs
