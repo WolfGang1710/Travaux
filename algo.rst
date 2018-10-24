@@ -498,14 +498,14 @@ a.
         
         $ export PS1="linux on en veux encore # > "
 
-On peut même changer la couleur !
-    :code:`$ export PS1="\e[0;36m\! - linux on en veux encore # > \e[m"`
+        #On peut même changer la couleur !
+        $ export PS1="\e[0;36m\! - linux on en veux encore # > \e[m"
 
-b.  :code:`$ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m"`
+        $ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m"
 
 c. La commande :code:`man ls` fonctionne, et affiche un beau pavé de texte explicatif.
 
-d.  
+
 
 .. code-block:: bash
 
@@ -518,10 +518,6 @@ d.
     21 22 23 24 25 26 27  
     28 29 30 31    
 
-e. 
-
-.. code-block:: bash
-
         $ who
     blaisearth tty2         2018-10-24 10:40 (:1)
         $ whoami
@@ -531,33 +527,17 @@ f. La commande :code:`stty -echo` permet de rentrer du texte sans l'afficher à 
 
 g. On peut confirmer, :code:`stty echo` nous permet de voir à nouveau les commandes entrées. C'est plus partique pour continuer le TP...
 
-h.  
 
 .. code-block:: bash
 
         $ xterm -hc blue -bg cyan -fg brown
 
-i.
-
-.. code-block:: bash
-
         $ which python3
     /usr/bin/python3
 
-j.  
-
-.. code-block:: bash
-
         $ alias hop=ls`
 
-k.
-
-.. code-block:: bash
-
         $ alias rs="rm -i"
-
-l. 
-.. code-block:: bash
 
         $touch test.txt
         $rs test.txt
@@ -612,4 +592,36 @@ Exercice 3
         $ rmdir tmp
     rmdir: impossible de de supprimer 'tmp': Le dossier n'est pas vide
         $ rm -r tmp
-
+        
+        $ head -n 15 lorem.txt
+    [...]
+        $ head -n 9 lorem.txt >temp.txt
+        $ tail -n 5 temp.txt >temp2.txt
+        $ head -n 13 lorem.txt >temp.txt
+        $ tail -n 1 temp.txt >temp3.txt
+        $ cat temp2.txt temp3.txt >final.txt
+        
+        $ cat final.txt
+        $ more final.txt
+        #Aucune différence visible
+        
+        $ mkdir tmp
+        $ cp final.txt tmp/
+        
+        $ cd tmp
+        $ cp final.txt "lorem en ipsum".txt
+        $ mv final.txt ~/.local/share/Trash/files #Corbeille de l'ordinateur
+        $ mv "lorem en ipsum.txt" ~/
+        $ ls ~/
+    Bureau     Images              Modèles  Prepal  Téléchargements  VirtualBox VMs
+    Documents  lorem en ipsum.txt  Musique  Public  Vidéos
+    
+        $ ln -s "/cergy/homee/b/blaisearth/lorem_en_ipsum.txt" ipsum
+        $ ls -A --author -F -h -H -i -s
+        $ ls -l
+    total 1
+    lrwxrwxrwx 1 blaisearth users 44 oct.  24 12:28 ipsum -> /cergy/homee/b/blaisearth/lorem_en_ipsum.txt
+        $ rm ~/lorem_en_ipsum.txt
+        $ ls -l
+        #La direction de l'alias est colorée en rouge, annoncant que le lien est rompu
+        
