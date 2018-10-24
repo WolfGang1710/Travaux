@@ -497,7 +497,22 @@ On peut même changer la couleur !
 
 b.  :code:`$ export PS1="\e[0;36m\!\e[m - \e[0;32m\w # \e[m`
 
+c. La commande :code:`man ls` fonctionne, et affiche un beau pavé de texte explicatif.
+
 d.  :code:`$ cal 10 2018`
+
+e. 
+
+.. code-block:: bash
+
+        $ who
+    blaisearth tty2         2018-10-24 10:40 (:1)
+        $ whoami
+    blaisearth
+
+f.
+
+g.
 
 h.  :code:`$ xterm -hc blue -bg cyan -fg brown`
 
