@@ -1,6 +1,12 @@
-------
-PASCAL
-------
+======
+Pascal
+======
+
+Voici la page où je mettrai quelques travaux codés en Pascal. Ni plus ni moins.
+
+----------
+Premier TP
+----------
 
 .. code-block:: ps
 
@@ -320,5 +326,4 @@ PASCAL
           writeln('')
        UNTIL (choix = 0);
     END.
-
-._.
+    (*feat Loann*)
