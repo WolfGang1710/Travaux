@@ -8,7 +8,7 @@ Voici la page où je mettrai quelques travaux codés en Pascal. Ni plus ni moins
 Premier TP
 ----------
 
-.. code-block:: ps
+.. code-block:: pas
 
     (*
      ------------------------------------------------------------------------------------
