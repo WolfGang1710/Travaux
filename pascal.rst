@@ -613,6 +613,54 @@ TP Sup
         writeln('-',s,'-')
     end;
 
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Tue Nov 13 2018
+    --
+    -- But               : TP de gémoétrie - question 5
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    FUNCTION lireInt() :integer;
+    VAR x:integer;
+    begin
+        writeln('');
+        write('> ');
+        read(x);
+        lireInt := x;
+    end;
+
+    PROCEDURE q5funct(VAR x,y:real);
+    VAR a,b,c,d,e,f:integer;
+        temp1,temp2:real;
+    begin
+        writeln('Entrez les valeurs de a, b, c, d, e et f');
+        a := lireInt();
+        b := lireInt();
+        c := lireInt();
+        d := lireInt();
+        e := lireInt();
+        f := lireInt();
+        temp1 := f-(d*c)/a;
+        temp2 := e+b/a;
+        y := -temp1/temp2;
+        x := (c-b*y)/a;
+    end;
+
+    PROCEDURE q5();
+    VAR x,y:real;
+    begin
+        x := 0.0;
+        y := 0.0;
+        q5funct(x,y);
+        writeln('Les solutions sont x=',x,' et y=',y);
+    end;
 
     (*
     ------------------------------------------------------------------------------------
@@ -643,6 +691,7 @@ TP Sup
                     2 : q2();
                     3 : q3();
                     4 : q4();
+                    5 : q5();
                 else
                     writeln('Nothing');
                 end;
