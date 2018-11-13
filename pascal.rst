@@ -327,3 +327,324 @@ Premier TP
        UNTIL (choix = 0);
     END.
     (*feat Loann*)
+
+
+------
+TP Sup
+------
+
+.. code-block:: pas
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Sun Nov 11 2018
+    --
+    -- But               : TP de gémoétrie en Pascal
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    PROGRAM Tp1;
+
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Sun Nov 11 2018
+    --
+    -- But               : TP de gémoétrie - question 1
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    PROCEDURE ligne(n : integer);
+    VAR
+        x: integer;
+    begin
+        for x:=1 to n do
+            writeln('*');
+    end;
+
+    PROCEDURE carre1(n : integer);
+    VAR
+        x,y: integer;
+    begin
+        for x:=1 to n do
+            begin
+            for y:=1 to n do
+                write('* ');
+            writeln('')
+            end;
+    end;
+
+    PROCEDURE triangle1(n : integer);
+    VAR
+        x,y: integer;
+    begin
+        for x:=1 to n do
+            begin
+                for y:=1 to x do
+                    write('* ');
+                writeln('');
+            end;
+    end ;
+
+    PROCEDURE triangle2(n : integer);
+    VAR
+        x, y: integer;
+    begin
+        for x:=1 to n do
+            begin
+                for y:=1 to n-x do
+                    write('  ');
+                for y:=1 to x do
+                    write('* ');
+            writeln(' ');
+            end;
+    end;
+
+    PROCEDURE carre2(n : integer);
+    VAR x,y: integer;
+    begin
+        for x:=1 to n do
+            begin
+            if (x=1) or (x=n) then
+                begin
+                for y:=1 to n do
+                    write('* ');
+                end
+            else
+                begin
+                write('* ');
+                for y:=1 to n-2 do
+                    write('  ');
+                write('* ');
+                end;
+            writeln('');
+            end;
+    end;
+
+    PROCEDURE croix(n : integer);
+    VAR x,y: integer;
+    begin
+        for x:=1 to n do
+            begin
+            for y:=1 to n do
+                begin
+                if (y=x) or (y=n-x+1) then
+                    write('* ')
+                else
+                    write('  ')
+                ;
+                end;
+            writeln('');
+            end;
+    end;
+
+    PROCEDURE q1();
+    VAR
+        choix,n : integer;
+    begin
+        writeln('Choisissez la fonction à lancer');
+        writeln('1 - Ligne');
+        writeln('2 - Carré1');
+        writeln('3 - Triangle1');
+        writeln('4 - Triangle2');
+        writeln('5 - Carré2');
+        writeln('6 - Croix');
+        write('> ');read(choix);
+        if (choix>6) or (choix<1) then
+            begin
+                writeln('Choix invalide')
+            end
+        else
+            begin
+                writeln('');
+                write('Entrez l''entier n : ');read(n);
+                case choix of
+                    1 : ligne(n);
+                    2 : carre1(n);
+                    3 : triangle1(n);
+                    4 : triangle2(n);
+                    5 : carre2(n);
+                    6 : croix(n);
+                else
+                    writeln('Nothing');
+                end;
+            end;
+        writeln('')
+    end;
+
+
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Sun Nov 42
+    --
+    -- But               : TP de gémoétrie - question 2
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    PROCEDURE q2();
+    VAR
+        word : string;
+        x : integer;
+        a : char;
+    begin
+        writeln('Entrez une chaine de caractères');
+        write('> ');read(word);
+        for x:=1 to length(word) do
+            begin
+            a := word[x];
+            if a in ['a','e','i','o','u','y'] then
+                write('?')
+            else
+                write(a)
+            ;
+            end;
+        writeln('');
+    end;
+
+
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Mon Nov 12 2018
+    --
+    -- But               : TP de gémoétrie - question 3
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+     -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    FUNCTION q3f() : integer;
+    VAR word : string;
+        x,a : integer;
+    begin
+        writeln('Entrez une chaine de caractères');
+        write('> ');read(word);
+        a := 1;
+        for x:=1 to length(word) do
+            if (word[x] = ' ') then
+                a := a+1
+            ;
+        q3f := a;
+    end;
+
+    PROCEDURE q3();
+    VAR a:integer;
+    begin
+        a := q3f();
+        writeln(a);
+    end;
+
+
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Tue Nov 13 2018
+    --
+    -- But               : TP de gémoétrie - question 4
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    FUNCTION q4f() : string;
+    VAR sent,temp,rep:string;
+        a:char;
+        x,y:integer;
+    begin
+        write('Saisissez une chaine de caractères :');
+        read(sent);
+        if sent='' then
+            begin
+            sent := '     lol mdr     ';
+            write(sent)
+            end;
+        a := ' ';
+        x := 0;
+        temp := '';
+        rep := '';
+        while a=' ' do
+            begin
+            x := x+1;
+            a := sent[x];
+            end;
+        for y:=x to length(sent) do
+            temp := temp+sent[y];
+
+        a := ' ';
+        x := length(temp)+1;
+        while a=' ' do
+            begin
+            x := x-1;
+            a := temp[x];
+            end;
+        for y:=x downto 1 do
+            rep := temp[y]+rep;
+        writeln('');
+        q4f := rep;
+    end;
+
+    PROCEDURE q4();
+    VAR s:string;
+    begin
+        s := q4f();
+        writeln('-',s,'-')
+    end;
+
+
+    (*
+    ------------------------------------------------------------------------------------
+    -- Fichier           : tp2.pas
+    -- Auteur            : Arthur Blaise
+    -- Date de creation  : Sun Nov 11 2018
+    --
+    -- But               : TP de gémoétrie - procédure prinicpale
+    -- Remarques         : Aucune
+    -- Compilation       : fpc
+    -- Edition des liens : fpc
+    -- Execution         : shell
+    ------------------------------------------------------------------------------------
+    *)
+
+    VAR
+        choix : integer;
+    begin
+        write('Question n°');
+        read(choix);
+        if (choix>5) or (choix<0) then
+            writeln('Choix invalide')
+        else
+            begin
+                writeln('');
+                case choix of
+                    1 : q1();
+                    2 : q2();
+                    3 : q3();
+                    4 : q4();
+                else
+                    writeln('Nothing');
+                end;
+            end;
+        writeln('')
+    end.
