@@ -1,6 +1,6 @@
-==========================================
-Algorithmique et programmation procédurale
-==========================================
+==============================
+Introduction à l'algorithlique
+==============================
 
 --------------------------------
 TD Eléments de base – Structures
