@@ -341,7 +341,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Sun Nov 11 2018
     --
-    -- But               : TP de gémoétrie en Pascal
+    -- But               : TP de géométrie en Pascal
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
@@ -357,7 +357,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Sun Nov 11 2018
     --
-    -- But               : TP de gémoétrie - question 1
+    -- But               : TP de géométrie - question 1
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
@@ -490,7 +490,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Sun Nov 42
     --
-    -- But               : TP de gémoétrie - question 2
+    -- But               : TP de géométrie - question 2
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
@@ -525,7 +525,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Mon Nov 12 2018
     --
-    -- But               : TP de gémoétrie - question 3
+    -- But               : TP de géométrie - question 3
     -- Remarques         : Aucune
     -- Compilation       : fpc
      -- Edition des liens : fpc
@@ -561,7 +561,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Tue Nov 13 2018
     --
-    -- But               : TP de gémoétrie - question 4
+    -- But               : TP de géométrie - question 4
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
@@ -619,7 +619,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Tue Nov 13 2018
     --
-    -- But               : TP de gémoétrie - question 5
+    -- But               : TP de géométrie - question 5
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
@@ -668,7 +668,7 @@ TP Sup
     -- Auteur            : Arthur Blaise
     -- Date de creation  : Sun Nov 11 2018
     --
-    -- But               : TP de gémoétrie - procédure prinicpale
+    -- But               : TP de géométrie - procédure prinicpale
     -- Remarques         : Aucune
     -- Compilation       : fpc
     -- Edition des liens : fpc
