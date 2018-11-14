@@ -338,7 +338,7 @@ TP Sup
     (*
     ------------------------------------------------------------------------------------
     -- Fichier           : tp2.pas
-    -- Auteur            : Arthur Blaise
+    -- Auteur            : Arthur Blaise / Loann Pottier
     -- Date de creation  : Sun Nov 11 2018
     --
     -- But               : TP de géométrie en Pascal
