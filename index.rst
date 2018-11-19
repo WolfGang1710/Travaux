@@ -17,4 +17,4 @@ Vous pourrez donc trouver ici certains TD ou autres exercices divers et variés 
    :caption: Contenu:
 
    algo
-..   pascal
+   pascal
