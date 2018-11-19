@@ -1,5 +1,5 @@
 ==============================
-Introduction à l'algorithlique
+Introduction à l'algorithmique
 ==============================
 
 --------------------------------
