@@ -100,4 +100,28 @@ Exercice 2
     
     $ tail -n 5 2050.txt >> toto
     
-    $ sort toto
+    $ sort -b toto
+    
+    $ head -c 20 toto #affiche les 20 premiers caractères du fichier
+    
+    $ cp toto tata
+    
+    $ cat toto >> tata
+    
+    $ sort -u tata > tata2
+    $ cat tata2 > tata
+    $ rm tata2
+    
+    $ sed -i 's/ //g' tata
+    
+
+Exercice 3
+----------
+
+..code-block:: bash
+
+    $ rm ~/Escalade2050.txt
+    
+    $ ls ./Info/SGF/tmp
+  Escalade2050 #(en rouge)
+  #La couleur rouge indique que le lien n'est plus valide, la source a disparu
