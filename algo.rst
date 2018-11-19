@@ -540,7 +540,7 @@ g. On peut confirmer, :code:`stty echo` nous permet de voir à nouveau les comma
         $ alias rs="rm -i"
 
         $touch test.txt
-        $rs test.txt
+        $rm test.txt
     rm : supprimer fichier vide 'test.txt' ? y
 
 
