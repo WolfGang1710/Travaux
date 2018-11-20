@@ -114,11 +114,15 @@ Exercice 2
     
     $ sed -i 's/ //g' tata
     
+    $ find -mtime -1
+    
+    $ find -mtime -1 -name *les*
+    
 
 Exercice 3
 ----------
 
-..code-block:: bash
+.. code-block:: bash
 
     $ rm ~/Escalade2050.txt
     
