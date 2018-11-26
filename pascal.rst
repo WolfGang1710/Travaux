@@ -747,3 +747,18 @@ Encore plus loin
         for j:=1 to length(t) do
             stroumpf := stroumpf + t[j]*t2[i];
     end;
+    
+.. code-block:: pas
+
+    PROCEDURE q1(t:tabstat; var t2:tabstat);
+    VAR i,j:integer;
+    begin
+    j := 1;
+    t2[1] := t[1];
+    for i:=2 to length(t) do
+        if t[i]<>t[i-1] then
+        begin
+            j := j+1;
+            t2[j] := t[i];
+        end;
+    end;
