@@ -738,3 +738,12 @@ Encore plus loin
     writeln('Minimum : ',min,' | Maximum : ',max);
     writeln(' ');
     end.
+
+.. code-block:: pas
+
+    PROCEDURE q2(t1,t2:tabstat, var stroumpf:real);
+    begin
+    FOR i:=1 to length(t2) do
+        for j:=1 to length(t) do
+            stroumpf := stroumpf + t[j]*t2[i];
+    end;
