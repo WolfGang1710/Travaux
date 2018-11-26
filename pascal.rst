@@ -714,6 +714,7 @@ Encore plus loin
     PROCEDURE q1(t:tabstat; var min, max:real);
     VAR i:integer;
     begin
+    min := t[1]; max := t[1];
     FOR i:=1 to length(t) do
         begin
         if t[i]<min then
