@@ -698,3 +698,42 @@ TP Sup
             end;
         writeln('')
     end.
+
+
+----------------
+Encore plus loin
+----------------
+
+.. code-block:: pas
+
+    PROGRAM minMax;
+
+    CONST imin=1; imax=8;
+    Type tabstat = array[imin..imax] of real;
+
+    PROCEDURE q1(t:tabstat; var min, max:real);
+    VAR i:integer;
+    begin
+    FOR i:=1 to length(t) do
+        begin
+        if t[i]<min then
+            min := t[i]
+        ;
+        if t[i]>max then
+            max := t[i]
+        end;
+    end;
+
+    VAR t:tabstat;
+    i:integer;
+    min,max:real;
+    Begin
+    FOR i:=imin to imax do
+    begin
+        write('> ');read(t[i]);
+    end;
+    writeln('');
+    q1(t,min,max);
+    writeln('Minimum : ',min,' | Maximum : ',max);
+    writeln(' ');
+    end.
