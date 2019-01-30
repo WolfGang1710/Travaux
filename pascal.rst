@@ -762,3 +762,45 @@ Encore plus loin
             t2[j] := t[i];
         end;
     end;
+
+-----------------------
+Les tableaux dynamiques
+-----------------------
+
+1. Le carré magique
+
+.. code-block:: pas
+
+    function izmagic(tableau:carre):boolean;
+    var j,s,exs:integer; // incrément, somme, et deuxième somme
+        i:array of integer; // ligne du carré
+    begin
+        s := 0;
+        exs := -1;
+        izmagic := True;
+        for i in tableau do begin // on commence par les lignes
+            for j in i do
+                s := s+j;
+            if exs>-1 then
+                izmagic := izmagic and (s=exs)
+            else
+                exs := s;
+            s:=0;
+            end;
+        exs := -1;
+        for j:=0 to high(tableau[0]) do begin // puis les colonnes
+            for i in tableau do
+            s := s+i[j];
+            if exs>-1 then
+                izmagic := izmagic and (s=exs)
+            else
+                exs := s;
+            s := 0;
+            end;
+        exs := 0;
+        for j:=0 to high(tableau) do begin // enfin les deux diagonales
+            exs := exs + tableau[j,j]; // x=y
+            s := s + tableau[j,high(tableau)-j]; // n-x=y
+            end;
+        izmagic := izmagic and (s=exs);
+    end;
