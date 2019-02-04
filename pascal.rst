@@ -767,7 +767,8 @@ Encore plus loin
 Les tableaux dynamiques
 -----------------------
 
-1. Le carré magique
+Le carré magique
+----------------
 
 .. code-block:: pas
 
@@ -804,3 +805,113 @@ Les tableaux dynamiques
             end;
         izmagic := izmagic and (s=exs);
     end;
+
+
+Horloge digitale
+----------------
+
+.. code-block:: pas
+
+    Uses Dos,sysutils,Crt;
+    Type number=array[0..4] of string;
+
+    Const zero:number= ('#####',
+                        '#   #',
+                        '#   #',
+                        '#   #',
+                        '#####');
+    Const one:number = ('    #',
+                        '    #',
+                        '    #',
+                        '    #',
+                        '    #');
+    Const two:number = ('#####',
+                        '    #',
+                        '#####',
+                        '#    ',
+                        '#####');
+    Const three:number=('#####',
+                        '    #',
+                        ' ####',
+                        '    #',
+                        '#####');
+    Const four:number= ('#   #',
+                        '#   #',
+                        '#####',
+                        '    #',
+                        '    #');    
+    Const five:number= ('#####',
+                        '#    ',
+                        '#####',
+                        '    #',
+                        '#####');
+    Const six:number = ('#####',
+                        '#    ',
+                        '#####',
+                        '#   #',
+                        '#####');
+    Const seven:number=('#####',
+                        '    #',
+                        '    #',
+                        '    #',
+                        '    #');
+    Const eight:number=('#####',
+                        '#   #',
+                        '#####',
+                        '#   #',
+                        '#####');
+    Const nine:number= ('#####',
+                        '#   #',
+                        '#####',
+                        '    #',
+                        '#####');
+    Const point:number =('   ',
+                        ' # ',
+                        '   ',
+                        ' # ',
+                        '   ');
+  
+    procedure displayNumb(wo:string);
+    var c:char;
+        i:integer;
+        t:string;
+    begin
+        t := '';
+        for i:=0 to 4 do begin
+            for c in wo do
+                CASE c OF
+                    '0': t := t+zero[i]+' ';
+                    '1': t := t+one[i]+' ';
+                    '2': t := t+two[i]+' ';
+                    '3': t := t+three[i]+' ';
+                    '4': t := t+four[i]+' ';
+                    '5': t := t+five[i]+' ';
+                    '6': t := t+six[i]+' ';
+                    '7': t := t+seven[i];
+                    '8': t := t+eight[i]+' ';
+                    '9': t := t+nine[i]+' ';
+                    ':': t := t+point[i];
+                end;
+            writeln(t);
+            t := '';
+        end;
+    end;
+
+    procedure q2;
+    var Hour,Min,Sec,HSec:word;
+        exSec:word; //backup des secondes
+        H,M,S:string;
+    begin
+        exSec := 0;
+        while True do begin
+            GetTime(Hour,Min,Sec,HSec);
+            if Sec<>exSec then begin
+                clrscr;
+                if Hour<10 then H := '0'+IntToStr(Hour) else H := IntToStr(Hour);
+                if Min<10 then M := '0'+IntToStr(Min) else M := IntToStr(Min);
+                if Sec<10 then S := '0'+IntToStr(Sec) else S := IntToStr(Sec);
+                    displayNumb(H+':'+M+':'+S);
+                    exSec := Sec;
+                    end;
+                end;
+        end;
