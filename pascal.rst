@@ -915,3 +915,37 @@ Horloge digitale
                     end;
                 end;
         end;
+
+
+Manipulation de listes dynamiques
+---------------------------------
+
+Ici le but est de créer une fonction invert(array) qui permet d'inverser l'ordre des valeurs d'une liste, et une deuxième, push(array,integer) qui décale chaque valeur d'un certain nombre de rang vers la droite. Evidemment les fonctions doivent pouvoir s'adapter à la longueur de la liste.
+
+Parce que le modulo natif en Pascal m'a occasionné pas mal de bugs, j'ai préféré créer moi-même une fonction de modulo. Avec si peu de lignes pour tellement de problèmes en moins, je n'avais rien à perdre !
+
+.. code-block:: pas
+    
+    function modulo(a, b: integer): integer;
+    begin
+      modulo:= a - b * Round(a / b);
+      if modulo<0 then modulo := modulo+b
+    end;
+    
+    function invert(table:array):array
+    var i:integer;
+    Begin
+        SetLength(invert,length(table));
+        for i:=0 to high(table) do
+            invert[high(table)-i] := table[i];
+    end;
+
+    function push(table:array; n:integer):array;
+    var i,j:integer;
+    Begin
+        SetLength(push,length(table));
+        for i:=0 to high(table) do begin
+            j := modulo(n+i,length(table));
+            push[j] := table[i];
+            end;
+    end;
