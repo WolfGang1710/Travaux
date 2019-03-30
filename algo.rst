@@ -631,13 +631,13 @@ Exercice 3
 TD Binaire - Complexité
 -----------------------
 
-Quel serait l'intervalle réel représentable par un codage hypothétique en « quadrupleprécision », c'est à dire en 128 bits ?
+Quel serait l'intervalle réel représentable par un codage hypothétique en « quadruple précision », c'est à dire en 128 bits ?
 
 Sur 128 bits, selon la norme IEEE 754, l'exponentielle est codée sur 15 bits et la mantisse sur 113 bits. Pour éviter d'avoir des nombres trop longs, nous travaillerons avec la base 16.
 
-Les valeurs minimales et maximales de l'exponentielle sont donc celles que nous pouvons coder le mieux sur 15 bits, soient :math:`0001_{(16)} − 3FFF_{(16)} = −16382(10)` et 7FFE(16) − 3FFF(16) = 16383(10).
+Les valeurs minimales et maximales de l'exponentielle sont donc celles que nous pouvons coder le mieux sur 15 bits, soient :math:`0001_{(16)} − 3FFF_{(16)} = −16382(10)` et :math:`7FFE_{(16)} − 3FFF_{(16)} = 16383_{(10)}`.
 
-De là, pour obtenir la plus petite valeur positive, il suffit de calculer 2^−16382 (car on considère la mantisse à 0), soit environ 3.36 × 10^−4932.
-La valeur maximale est calculée avec une exponentielle à 16383, et une mantisse à 2^112, ce qui donne 2^16383 × (2 − 2^−112) = 1.19 × 10^4932.
+De là, pour obtenir la plus petite valeur positive, il suffit de calculer :math:`2^{−16382}` (car on considère la mantisse à 0), soit environ :math:`3.36 × 10^{−4932}`.
+La valeur maximale est calculée avec une exponentielle à 16383, et une mantisse à :math:`2^{112}`, ce qui donne :math:`2^{16383} × (2 − 2^{−112}) = 1.19 × 10^{4932}`.
 
-Les bornes des réels représentables par un codage en quadruple précision, aussi appelé binary128, sont donc approximativement :math:`3.36 × 10^{−4932}` et 1.19 × 10^4932 pour la partie positive. Pour la partie négative, il suffit de les multiplier par -1.
+Les bornes des réels représentables par un codage en quadruple précision, aussi appelé binary128, sont donc approximativement :math:`3.36 × 10^{−4932}` et :math:`1.19 × 10^{4932}` pour la partie positive. Pour la partie négative, il suffit de les multiplier par -1.
