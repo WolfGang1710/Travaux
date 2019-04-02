@@ -641,3 +641,27 @@ De là, pour obtenir la plus petite valeur positive, il suffit de calculer :math
 La valeur maximale est calculée avec une exponentielle à 16383, et une mantisse à :math:`2^{112}`, ce qui donne :math:`2^{16383} × (2 − 2^{−112}) = 1.19 × 10^{4932}`.
 
 Les bornes des réels représentables par un codage en quadruple précision, aussi appelé binary128, sont donc approximativement :math:`3.36 × 10^{−4932}` et :math:`1.19 × 10^{4932}` pour la partie positive. Pour la partie négative, il suffit de les multiplier par -1.
+
+
+
+----------------
+Maths Appliquées
+----------------
+
+Cryptage César
+--------------
+
+Voilà comment crypter un message via le code César, en python. Pour le décrypter, il suffit de rentrer l'opposé de la clé (-3 pour Cicéron par exemple).
+
+.. code-block:: python
+
+	alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Clé de cryptage
+
+	def crypte(sent,key=10): # fonction à appeler
+    	answer = ''
+    	for i in sent.upper(): # on mélange majuscules et minuscules
+        	if i in alpha: # si le caractère est dans la clé
+	            answer += alpha[(alpha.index(i)+key)%26]
+    	    else: # sinon (comme un espace ou une ponctuation)
+        	    answer += i
+	    return answer
