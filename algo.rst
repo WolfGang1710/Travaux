@@ -655,13 +655,13 @@ Voilà comment crypter un message via le code César, en python. Pour le décryp
 
 .. code-block:: python
 
-	alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Clé de cryptage
+    alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # Clé de cryptage
 
-	def crypte(sent,key=10): # fonction à appeler
-    	answer = ''
-    	for i in sent.upper(): # on mélange majuscules et minuscules
-        	if i in alpha: # si le caractère est dans la clé
-	            answer += alpha[(alpha.index(i)+key)%26]
-    	    else: # sinon (comme un espace ou une ponctuation)
-        	    answer += i
-	    return answer
+    def crypte(sent,key=10): # fonction à appeler
+        answer = ''
+        for i in sent.upper(): # on mélange majuscules et minuscules
+            if i in alpha: # si le caractère est dans la clé
+                answer += alpha[(alpha.index(i)+key)%26]
+            else: # sinon (comme un espace ou une ponctuation)
+                answer += i
+        return answer
