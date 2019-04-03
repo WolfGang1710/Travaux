@@ -643,6 +643,39 @@ La valeur maximale est calculée avec une exponentielle à 16383, et une mantiss
 Les bornes des réels représentables par un codage en quadruple précision, aussi appelé binary128, sont donc approximativement :math:`3.36 × 10^{−4932}` et :math:`1.19 × 10^{4932}` pour la partie positive. Pour la partie négative, il suffit de les multiplier par -1.
 
 
+Comparaisons et affectations
+----------------------------
+
+Voici une fonction pour vérifier si une liste est triée (peu importe l'ordre), et une procédure pour insérer une valeur dans une liste triée en ordre croissant.
+
+.. code-block:: pas
+
+    function check(A:intArray) : boolean;
+    var i:integer;
+    begin
+        check := True;
+        for i:=0 to high(A)-2 do
+            check := check and ((A[i]-A[i+1]) * (A[i+1]-A[i+2]) >= 0);
+    end;
+
+    procedure Insert(var A:intArray;val:integer);
+    var i:integer;
+        temp:intArray;
+    begin
+        i := 0;
+        SetLength(temp,length(A)+1);
+        while A[i] < val do begin
+            temp[i] := A[i];
+            i := i+1;
+        end;
+        temp[i] := val;
+        while i < high(A)+1 do begin
+            temp[i+1] := A[i];
+            i := i+1;
+        end;
+        A := temp;
+    end;
+
 
 ----------------
 Maths Appliquées
