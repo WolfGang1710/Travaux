@@ -949,3 +949,345 @@ Parce que le modulo natif en Pascal m'a occasionné pas mal de bugs, j'ai préf�
             push[j] := table[i];
             end;
     end;
+    
+    
+-------------
+Les pointeurs
+-------------
+
+Ici nous utilisons les pointeurs pour créer notre propre type de liste, et en implémentant sur ces listes différentes fonctions telles que l'insertion d'une valeur ou la suppression d'un index. Voici donc ces fonctions, ainsi que le menu qui permet de les tester.
+
+.. code-block:: pas
+
+    PROGRAM do_it_urself;
+
+    {$mode objfpc}
+
+    uses math;
+
+    TYPE
+        ptr_noeud = ^noeud;
+        noeud = RECORD
+            valeur : INTEGER;
+            suivant : ptr_noeud;
+        end;
+
+
+    function creerNoeud(val:INTEGER;suivant:ptr_noeud=Nil):ptr_noeud;
+    var nv:ptr_noeud;
+    begin
+        new(nv);
+        nv^.valeur := val;
+        nv^.suivant := suivant;
+        creerNoeud := nv
+    end;
+
+    function len(tete:ptr_noeud):integer;
+    var tmp:ptr_noeud;
+    begin
+        len := 0;
+        tmp := tete;
+        while (tmp <> Nil) do begin
+            len := len+1;
+            tmp := tmp^.suivant;
+        end;
+    end;
+
+    procedure display(tete:ptr_noeud;text:string='');
+    var i:integer;
+    begin
+        write(text,'[');
+        for i:=1 to len(tete)-1 do begin
+            write(tete^.valeur,';');
+            tete := tete^.suivant;
+            end;
+        writeln(tete^.valeur,']');
+    end;
+
+
+    function insert_b(tete:ptr_noeud;val:integer):ptr_noeud;
+    begin
+        insert_b :=  creerNoeud(val,tete);
+    end;
+
+    procedure insert_e(tete:ptr_noeud;val:integer);
+    var n:ptr_noeud;
+    begin
+        while tete^.suivant<>Nil do
+            tete := tete^.suivant;
+        n := creerNoeud(val);
+        tete^.suivant := n;
+    end;
+
+    procedure insert_m(tete:ptr_noeud;val,pos:integer);
+    var n:ptr_noeud;
+        i:integer;
+    begin
+        i := 0;
+        pos := min(pos,len(tete));
+        while i<pos-1 do begin
+            i := i+1;
+            tete := tete^.suivant;
+            end;
+        n := creerNoeud(val,tete^.suivant);
+        tete^.suivant := n;
+    end;
+
+    function del_b(tete:ptr_noeud):ptr_noeud;
+    begin
+        del_b := tete^.suivant;
+        dispose(tete);
+    end;
+
+    procedure del_e(tete:ptr_noeud);
+    begin
+        while tete^.suivant^.suivant <> Nil do
+            tete := tete^.suivant;
+        dispose(tete^.suivant);
+        tete^.suivant := Nil;
+    end;
+
+    procedure del_m(tete:ptr_noeud;pos:integer);
+    var i:integer;
+    begin
+        i := 0;
+        pos := min(pos,len(tete)-1);
+        while i<pos-1 do begin
+            i += 1;
+            tete := tete^.suivant;
+            end;
+        tete^.suivant := tete^.suivant^.suivant
+    end;
+
+    function search(tete:ptr_noeud;val:integer):integer;
+    var i:integer;
+    begin
+        i := 0;
+        while tete<>Nil do begin
+            if tete^.valeur=val then Exit(i);
+            i := i+1;
+            tete := tete^.suivant;
+            end;
+        exit(-1);
+    end;
+
+    function test:boolean;
+    var tete,v2:ptr_noeud;
+    begin
+        v2 := creerNoeud(14);
+        tete := creerNoeud(12,v2);
+        insert_e(tete,20);
+        display(tete,'Liste de départ: ');
+        writeln;
+        tete := insert_b(tete,-5);
+        insert_e(tete,42);
+        display(tete,'Insertion de -5 au début et 42 à la fin: ');
+        writeln('Longueur de la liste: ',len(tete));
+        insert_m(tete,34,3);
+        display(tete,'Insertion de 34 à la case 3: ');
+        writeln;
+        del_e(tete);
+        display(tete,'Suppression de la dernière case: ');
+        del_m(tete,2);
+        display(tete,'Suppression de la case 2: ');
+        writeln('Index de la valeur 34: ',search(tete,34));
+        Exit(True);
+    end;
+
+
+    function menu_insert(tete:ptr_noeud):ptr_noeud;
+    var pos,val:integer;
+    begin
+        write('Entrez la valeur à insérer',#10,'> ');readln(val);
+        if len(tete)=0 then
+            Exit(creerNoeud(val));
+        write('Entrez la position à laquelle insérer la valeur',#10,'> ');readln(pos);
+        if (pos<0) or (pos>len(tete)) then begin
+            writeln('Position invalide');
+            Exit(tete);
+            end;
+        if pos=0 then
+            tete := insert_b(tete,val)
+        else if pos=len(tete) then
+            insert_e(tete,val)
+            else insert_m(tete,val,pos);
+        exit(tete);
+    end;
+
+    function menu_search(tete:ptr_noeud):ptr_noeud;
+    var val:integer;
+    begin
+        write('Entrez la valeur à rechercher',#10,'> ');readln(val);
+        val := search(tete,val);
+        if val=-1 then writeln('Valeur introuvable')
+        else writeln('Cette valeur est à l''index ',val);
+        exit(tete);
+    end;
+
+    function menu_del(tete:ptr_noeud):ptr_noeud;
+    var pos:integer;
+    begin
+        write('Entrez l''index de la case à supprimer, entre 0 et ',len(tete),#10,'> ');readln(pos);
+        if (pos<0) or (pos>len(tete)) then begin
+            writeln('Position invalide');
+            Exit(tete);
+            end;
+        if pos=0 then
+            tete := del_b(tete)
+        else if pos=len(tete) then
+            del_e(tete)
+            else del_m(tete,pos);
+        exit(tete);
+    end;
+
+    function menu_random(tete:ptr_noeud):ptr_noeud;
+    var i,n:integer;
+    begin
+        write('Entrez le nombre de cases à ajouter',#10,'> ');readln(n);
+        if n<1 then begin
+            writeln('Impossible d''ajouter un nombre négatif de cases !');Exit(tete);end;
+        if n>150 then begin
+            writeln('Impossible d''ajouter plus de 150 cases !');Exit(tete);end;
+        if len(tete)=0 then begin
+            tete := creerNoeud(round(random(n*200)-n*100));
+            n := n-1;
+            end;
+        for i:=1 to n do
+            insert_e(tete,round(random(n*200)-n*100));
+        Exit(tete);
+    end;
+
+    function menu_del_2(tete:ptr_noeud):ptr_noeud;
+    var val,pos:integer;
+    begin
+        write('Entrez la valeur à effacer du tableau',#10,'> ');readln(val);
+        pos := search(tete,val);
+        if pos=-1 then begin
+            writeln('Valeur introuvable');
+            Exit(tete);
+            end;
+        if pos=0 then
+            tete := del_b(tete)
+        else if pos=len(tete) then
+            del_e(tete)
+            else del_m(tete,pos);
+        Exit(tete);
+    end;
+
+    function menu_del_3(tete:ptr_noeud):ptr_noeud;
+    var val,pos:integer;
+        b:boolean;
+    begin
+        write('Entrez la valeur à effacer du tableau',#10,'> ');readln(val);
+        b := True;
+        while b do begin
+            pos := search(tete,val);
+            // writeln('  #',pos,' trouvé');
+            // display(tete,'   ');
+            if pos=-1 then b:=False
+            else if pos=0 then
+                tete := del_b(tete)
+            else if pos=len(tete) then
+                del_e(tete)
+                else del_m(tete,pos);
+        end;
+        Exit(tete);
+    end;
+
+    function menu_duplicate(tete:ptr_noeud):ptr_noeud;
+    var i:integer;
+        node:ptr_noeud;
+    begin
+        node := tete;
+        for i:=1 to len(tete) do begin
+            insert_e(tete,node^.valeur);
+            node := node^.suivant;
+            end;
+        Exit(tete)
+    end;
+
+    function menu_reverse(tete:ptr_noeud):ptr_noeud;
+    var l:array of integer;
+        node:ptr_noeud;
+        i:integer;
+    begin
+        SetLength(l,len(tete));
+        i := 0;
+        node := tete;
+        while node<>Nil do begin
+            l[i] := node^.valeur;
+            node := node^.suivant;
+            i := i+1
+            end;
+        node := tete;
+        i := i-1;
+        while node<>Nil do begin
+            node^.valeur := l[i];
+            node := node^.suivant;
+            i := i-1
+            end;
+        Exit(tete)
+    end;
+
+    function menu_clear(tete:ptr_noeud):ptr_noeud;
+    var node:ptr_noeud;
+        i,pos:integer;
+    begin
+        if len(tete)<2 then Exit(tete);
+        node := tete^.suivant;
+        i := 0;
+        while node<>Nil do begin
+            if node^.suivant<>Nil then // si on n'est pas à la fin de la liste
+                pos := search(node^.suivant,node^.valeur) // on détecte si la valeur est représentée plus loin dans la liste
+            else break;
+            if (pos=-1) and (node^.valeur <> tete^.valeur) then begin // Si non, on passe
+                node := node^.suivant;
+                i := i+1;
+                continue
+                end;
+            node := node^.suivant;
+            del_m(tete,i)
+            end;
+        Exit(tete)
+    end;
+
+    procedure menu;
+    var tete:ptr_noeud;
+        choice:integer;
+        useless_b:boolean;
+    begin
+        tete := Nil;
+        while True do begin
+        writeln('Choisissez l''action à effectuer :',#10,'  1 - Insérer une valeur',#10,'  2 - Rechercher une valeur',#10,'  3 - Supprimer une case',#10,'  4 - Supprimer une valeur',#10,'  5 - Supprimer toutes les occurences d''une valeur',#10,'  6 - Dupliquer la liste',#10,'  7 - Inverser la liste',#10,'  8 - Supprimer les doublons',#10,'  9 - Ajouter des cases aléatoires',#10,'  10 - Afficher le programme de test',#10,'  0 - Quitter');
+        write('> ');readln(choice);
+        if (choice<0) or (choice>10) then begin
+            writeln('Saisie invalide',#10);
+            continue;
+            end
+        else if choice=0 then break;
+        if (choice>1) and (choice<8) and (len(tete)=0) then begin
+            writeln('Impossible de rechercher ou de supprimer une valeur dans un tableau vide !');
+            continue;
+            end;
+        case choice of
+            1: tete := menu_insert(tete);
+            2: tete := menu_search(tete);
+            3: tete := menu_del(tete);
+            4: tete := menu_del_2(tete);
+            5: tete := menu_del_3(tete);
+            6: tete := menu_duplicate(tete);
+            7: tete := menu_reverse(tete);
+            8: tete := menu_clear(tete);
+            9: tete := menu_random(tete);
+            10: useless_b := test;
+        end;
+        if len(tete)>0 then display(tete,#10+'Valeur actuelle: ');
+        writeln;
+        end;
+    end;
+
+    begin
+        randomize;
+        menu;
+        writeln(#10,'--- Fin du programme ---',#10)
+    end.
