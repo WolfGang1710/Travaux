@@ -19,3 +19,4 @@ Vous pourrez donc trouver ici certains TD ou autres exercices divers et variés 
    algo
    pascal
    unix
+   c
