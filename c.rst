@@ -58,7 +58,7 @@ TD 4 : Vecteurs 2D
 Exercice : Puissance 4
 ----------------------
 
-**Consigne :** *Ben... créer un puissance 4 avec une matrice (donc un vecteur de vecteurs). La taille est définie dans une constante symbolique notée N. Le plateau de jeu est noté :code:`ttint_plateau[i][i]`, avec i pour le numéro de colonne et j le numéro de ligne.*
+**Consigne :** *Ben... créer un puissance 4 avec une matrice (donc un vecteur de vecteurs). La taille est définie dans une constante symbolique notée N. Le plateau de jeu est noté* :code:`ttint_plateau[i][i]` *, avec i pour le numéro de colonne et j le numéro de ligne.*
 
 Extrait de code 1 : vérifier l'état actuel du jeu, si un joueur a gagné ou si ex-aequo (toutes les cases sont occupées), ou si on continue de jouer. J'ai défini les fonctions :code:`checkDiag1`, :code:`checkDiag2` etc. à côté, elles renvoient chacune d'entre elles le nombre de pions alignés io en fonction de la coordonnée donnée.
 
